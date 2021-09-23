@@ -21,6 +21,5 @@ class Casa
 $miCasa= new Casa;
 $miCasa->mostrar();
 
-
 ?>
 
