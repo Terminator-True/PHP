@@ -15,7 +15,9 @@ if ($n1 == $n2) {
     echo "Números entre: ",$n2,"y",$n1,":",$n2-$n1,"<br>";
  }       
 }
-for ($i=$inici; $i < $final; $i++) { 
-    echo $i,"<br>";
+for ($i=$inici; $i < $final; $i++) {
+    if ($i%2!=0) {
+        echo $i,"<br>";
+    } 
 }
 ?>
