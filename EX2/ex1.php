@@ -4,13 +4,16 @@
 function Factorial(int $num)
 {   
     echo "!",$num,"=";
-    for ($i=0; $i == $num ; $i++) { 
+    for ($i=1; $i <= $num ; $i++) { 
         $resultat=$num*$i;
         echo $i," ";
     }
+    echo "=",$resultat;
 }
 
 if (isset($_GET["num"])) {
     $num=$_GET["num"];
 }
+
+Factorial($num)
 ?>
