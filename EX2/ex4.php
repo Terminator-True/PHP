@@ -3,14 +3,16 @@
 
 function Conversio($graus,$convertir,$num)
 {
-    switch ($graus) {
-        case  "Celsius":
-            
-            break;
-        
-        default:
+    switch ($convertir) {
+        case 'Celsius':
             # code...
             break;
+        case 'Farenheit':
+                # code...
+            break;
+        case 'Kelvin':
+           # code...
+        break;
     }
 }
 
