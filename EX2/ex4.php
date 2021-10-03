@@ -2,7 +2,7 @@
 //Fes una pàgina on a partir d’un formulari on es recull una temperatura i en quina escala està, ens fa la conversió.
 
 function Conversio($graus,$convertir,$num)
-{
+{ //Concatenem els graus que donem, amb els quals farem la conversió així sabrem quina formula utilitzar
     switch ($graus."TO".$convertir) {
         case 'CelsiusTOFarenheit':
             $resultat = ( $num * 9 / 5) + 32;

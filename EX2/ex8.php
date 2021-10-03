@@ -2,8 +2,8 @@
 <?php
 //Fes un programa per fer una calculadora amb botons
 function Calculadora($funcio,$num1,$num2)
-{
-    switch ($operacio) {
+{   
+    switch ($funcio) {
         case '+':
             $res=$num1+$num2;
         case '-':
@@ -18,9 +18,9 @@ function Calculadora($funcio,$num1,$num2)
 
 if (isset( $_GET['num1']) && isset($_GET['num2']) && isset($_GET['funcio'])) {
     $num1 = $_GET['num1'];
-    $num22 = $_GET['num2'];
+    $num2 = $_GET['num2'];
     $funcio = $_GET['funcio'];
-    Calculadora($funcio,$num1,$num2);
+    echo Calculadora($funcio,$num1,$num2);
 }
 
 ?>
