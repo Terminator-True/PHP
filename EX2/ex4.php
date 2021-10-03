@@ -3,24 +3,43 @@
 
 function Conversio($graus,$convertir,$num)
 {
-    switch ($convertir) {
-        case 'Celsius':
-            # code...
+    switch ($graus."TO".$convertir) {
+        case 'CelsiusTOFarenheit':
+            $resultat = ( $num * 9 / 5) + 32;
             break;
-        case 'Farenheit':
-                # code...
+
+        case 'FarenheitTOCelsius':
+            $resultat = ( $num - 32) * 5 / 9;
             break;
-        case 'Kelvin':
-           # code...
-        break;
-    }
+
+        case 'CelsiusTOKelvin':
+            $resultat = $num + 273.15;
+            break;
+
+        case 'KelvinTOCelsius':
+            $resultat = $num - 273.15 ;
+            break;
+
+        case 'KelvinTOFarenheit':
+            $resultat = ($num - 273.15) * 9 / 5 + 32;
+            break;
+
+        case 'FarenheitTOKelvin':
+            $resultat = ( $num - 32 )  * 5 / 9 + 273.15;
+            break;
+        default:
+            $resultat = "Error";
+            break;
+        }
+    echo $num." º ".$graus." = ".$resultat." º ".$convertir;
+
 }
 
-if (isset($_GET["graus"]) && isset($_GET["convertir"]) && isset($_GET["num"]) ){
-    $mes=$_GET["graus"];
+if (isset($_GET["Graus"]) && isset($_GET["convertir"]) && isset($_GET["num"]) ){
+    $graus=$_GET["Graus"];
     $convertir = $_GET["convertir"];
-    $num=$_GET["num"];
-    conversio($graus,$convertir,$num);
+    $num=floatval($_GET["num"]);
+    Conversio($graus,$convertir,$num);
 
 }
 ?>  

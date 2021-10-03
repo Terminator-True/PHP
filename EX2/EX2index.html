@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Imprimir per pantalla</title>
+    <script type="text/php" src="ex8.php"></script>
 </head>
 <body>
-
     <form action="ex1.php" method="get">
         Numero 1: <input type="number" name="num"><br>
         <input type="submit" value="SI">
@@ -38,7 +38,7 @@
         <input type="radio" name="Graus" value="Celsius">Celsius
         <input type="radio" name="Graus" value="Kelvin">Kelvin
         <br>
-        Numero: <input type="number" name="num" value="num">
+        Numero: <input type="number" name="num" value="num"><br>
         <input type="submit" value="SI">
 
         <br>
@@ -46,6 +46,25 @@
         <input type="radio" name="convertir" value="Celsius">Celsius
         <input type="radio" name="convertir" value="Kelvin">Kelvin
         <br>
+    </form>
+    <br>
+    <form method="get" action="ex8.php">
+        <h2>Calculadora</h2>
+        <input type="text" name="num1">
+        <select name="operator">
+            <option value="+">+
+            </option>
+            <option value="-">-
+            </option>
+            <option value="">
+            </option>
+            <option value="/">/
+            </option>
+        </select>
+        <input type="text" name="num2">
+        <input type="submit" value="enviar">
+        <input>
+        
     </form>
 </body>
 </html>
