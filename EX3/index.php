@@ -7,10 +7,16 @@
 </head>
 
 <?php 
-
+echo "<h1>EX2</h1>";
 require "ex2.php";
-
-ImprimirCEU()
+echo "<h1>EX3</h1>";
+require "ex3.php";
+echo "<h1>EX4</h1>";
+require "ex4.php";
+echo "<h1>EX5</h1>";
+require "ex5.php";
+echo "<h1>EX6</h1>";
+require "ex6.php";
 ?>
 <body>
 
