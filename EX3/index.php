@@ -17,6 +17,8 @@ echo "<h1>EX5</h1>";
 require "ex5.php";
 echo "<h1>EX6</h1>";
 require "ex6.php";
+echo "<h1>EX7</h1>";
+require "ex7.php";
 ?>
 <body>
 
