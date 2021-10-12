@@ -16,9 +16,6 @@ function comptarTotalAlidioma($escola){
     $totalIdiomes["rus"]=0;
     foreach ($escola as $si => $nivell) {
         foreach ($nivell as $key => $value) {
-            echo "<br>",vale,"|",$value,"|",$key;
-            print_r($totalIdiomes);
-            echo "<br>";
             switch ($key) {
                 case 0:
                     $totalIdiomes["angles"]+=$value;
