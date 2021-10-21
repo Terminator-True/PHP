@@ -1,4 +1,5 @@
 <?php
+function esMayuscula($cadena){return $cadena === strtoupper($cadena);}
 session_start();
 session_id();
 $_SESSION["user"]="Joel";
@@ -18,13 +19,12 @@ if (isset($_POST["text"]) ){
         if ($i==strlen($text)-1 && !$acabat) {
             $imprimir=$imprimir."No Conté números";
             $acabat=TRUE;
-
         }
-        if (count(explode(" ",$text))>1) {
-            $Paraules=preg_split(" ",$text);
-            if (strtoupper($Paraules[$j])==$Paraules[$j]) {
+        if (count(preg_split("/[\s,]+/",$text))>1) {
+            $Paraules=preg_split("/[\s,]+/",$text);
+            if (esMayuscula($Paraules[$j])) {
                 $pM++;
-            }
+            }   
             $j++;
         }
         $i++;
@@ -35,7 +35,6 @@ if (isset($_POST["text"]) ){
 }
 
 $_SESSION["imprimir"]=$imprimir;
-#echo $_SESSION["imprimir"];
 header("Location: /php-mp07/EX4/ej1/index.php");
 
 ?>
