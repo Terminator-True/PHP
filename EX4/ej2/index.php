@@ -4,22 +4,29 @@ $inactiu = 60;
 if (isset($_SESSION["timeout"])) {
     $limit= time() - $_SESSION["timeout"];
     if ($limit > $inactiu) {
-        session_destroy();
         header("Location: logout.php");
     }
 }
 $_SESSION["timeout"]=time();
-$_SESSION["imprimir"]="";
 
-if (isset($_SESSION["user"])) {
-    echo $_SESSION["imprimir"];
+
+if (!isset($_SESSION["user"])) {
+    $_SESSION["user"]="Joel";
+    $_SESSION["imprimir"]="";
+}
+
+if (isset($_SESSION["user"]) && $_SESSION["imprimir"]=="Tot Correcte!") {
+    print_r($_SESSION["imprimir"]);
     ?>
         <h1>Benvingut</h1>
-        <button> <a href="logout.php"> Log in</a> </button>
+        <button> <a href="logout.php"> Log out</a> </button>
     <?php
 }else {
-    ?><form action="ej2.php" method="post" >Email:<input type="text" name="email" title="Invalid input"></form>
-    <form action="ej2.php" method="post" >Password:<input type="password" name="password"  title="Invalid input"></form><?php
-    $_SESSION["user"]="Joel";
+    print_r($_SESSION["imprimir"]);
+    ?><form action="ej2.php" method="post" >
+        Email:<input type="email" name="email"><br>
+        Password:<input type="password" name="password">
+    <input type="submit" value="Si">
+    </form><?php
 }
 ?>
