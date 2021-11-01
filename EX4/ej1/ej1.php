@@ -1,7 +1,6 @@
 <?php
 function esMayuscula($cadena){return $cadena === strtoupper($cadena);}
 session_start();
-session_id();
 $_SESSION["user"]="Joel";
 
 if (isset($_POST["text"]) ){
