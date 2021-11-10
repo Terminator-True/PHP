@@ -9,20 +9,31 @@
 <body>
 <?php
 session_start();
-if (!isset($_SESSION["imprimir"])) {
-    $_SESSION["imprimir"]=array("nom"=>"","pass"=>"","formacio"=>"","idioma"=>"","email"=>"","web"=>"")
+$inactiu = 60;
+if (isset($_SESSION["timeout"])) {
+    $limit= time() - $_SESSION["timeout"];
+    if ($limit > $inactiu) {
+        session_destroy();
+    }
 }
-?>
-<form action="validacio.php" method="POST">
+$_SESSION["timeout"]=time();
+if (!isset($_SESSION["imprimir"])) {
+    $_SESSION["imprimir"]=array("nom"=>"","pass"=>"","formacio"=>"","idioma"=>"","email"=>"","web"=>"");
+}
+?>  
+<form action="valida.php" method="POST">
     <fieldset>
         <legend>EX6-PHP:</legend>
                 <p> 
                     <label for="nom">Nom:</label>
-                    <input type="text" name="nom" pattern="[A-Za-z]+"/>
+                    <input type="text" name="nom" required/>
+                    <?php
+                     print_r($_SESSION["imprimir"]["nom"]);
+                    ?> 
                 </p>
                 <p> 
                     <label for="pass">Password:</label>
-                    <input type="password" name="pass" require="required"  />
+                    <input type="password" name="pass" required/>
                 </p>
                 <p> 
                     <label for="pass">Formació:</label>
@@ -47,7 +58,7 @@ if (!isset($_SESSION["imprimir"])) {
                 </p>
                 <p> 
                     <label for="email">Email: </label>
-                    <input type="email" name="email" require="required"  />
+                    <input type="email" name="email" required/>
                 </p>
                 <p> 
                     <label for="web">Lloc web: </label>

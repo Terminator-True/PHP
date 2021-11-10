@@ -39,6 +39,7 @@ function printArray($a) {
     }
     echo "</ul>";
 }
+
 generaArray(100);
 print_r($arraySencers);
 printArray($arraySencers);
@@ -48,7 +49,7 @@ function acabaEn($a) {
     for ($i=0; $i < 10; $i++) { 
         $fila=[];
         for ($j=0; $j < count($a); $j++) { 
-            if (intval(substr(strval($a[$j]),-1))-$i==0) {
+            if (intval(substr(strval($a[$j]),-1))-$i==0) {  
                 $fila[]=$a[$j];
             }
         }
