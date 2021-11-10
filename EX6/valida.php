@@ -2,10 +2,8 @@
 session_start();
 //comprovació dels camps obligatoris
 function ProcesaNom($nom){
-    if (!preg_match("/[a-zA-Z]/i",$nom)) {
+    if (preg_match("/[a-zA-Z]/i",$nom)) {
         $_SESSION["imprimir"]["nom"]="Nom Incorrecte";
-    }else {
-        $_SESSION["imprimir"]["nom"]="";
     }
 }
 if (isset($_POST["nom"]) && isset($_POST["pass"]) && isset($_POST["idioma"]) && isset($_POST["email"])) {

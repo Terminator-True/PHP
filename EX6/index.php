@@ -26,14 +26,14 @@ if (!isset($_SESSION["imprimir"])) {
         <legend>EX6-PHP:</legend>
                 <p> 
                     <label for="nom">Nom:</label>
-                    <input type="text" name="nom" required/>
+                    <input type="text" name="nom" />
                     <?php
                      print_r($_SESSION["imprimir"]["nom"]);
                     ?> 
                 </p>
                 <p> 
                     <label for="pass">Password:</label>
-                    <input type="password" name="pass" required/>
+                    <input type="password" name="pass" />
                 </p>
                 <p> 
                     <label for="pass">Formació:</label>
@@ -58,7 +58,7 @@ if (!isset($_SESSION["imprimir"])) {
                 </p>
                 <p> 
                     <label for="email">Email: </label>
-                    <input type="email" name="email" required/>
+                    <input type="email" name="email" />
                 </p>
                 <p> 
                     <label for="web">Lloc web: </label>
