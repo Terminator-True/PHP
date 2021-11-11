@@ -9,13 +9,7 @@
 <body>
 <?php
 session_start();
-$inactiu = 60;
-if (isset($_SESSION["timeout"])) {
-    $limit= time() - $_SESSION["timeout"];
-    if ($limit > $inactiu) {
-        session_destroy();
-    }
-}
+ 
 $_SESSION["timeout"]=time();
 if (!isset($_SESSION["imprimir"])) {
     $_SESSION["imprimir"]=array("nom"=>"","pass"=>"","formacio"=>"","idioma"=>"","email"=>"","web"=>"");
@@ -28,12 +22,15 @@ if (!isset($_SESSION["imprimir"])) {
                     <label for="nom">Nom:</label>
                     <input type="text" name="nom" />
                     <?php
-                     print_r($_SESSION["imprimir"]["nom"]);
+                    print_r($_SESSION["imprimir"]["nom"]);
                     ?> 
                 </p>
                 <p> 
                     <label for="pass">Password:</label>
-                    <input type="password" name="pass" />
+                    <input type="password" name="pass" required/>
+                    <?php
+                    print_r($_SESSION["imprimir"]["pass"]);
+                    ?> 
                 </p>
                 <p> 
                     <label for="pass">Formació:</label>
@@ -45,24 +42,33 @@ if (!isset($_SESSION["imprimir"])) {
                 </p>
                 <p> 
                     <label for="idioma">Idiomes:</label>
-                    <input type="radio" id="ca" name="idioma"/>
-                    <label for="idioma">Catalá</label>
-                    <input type="radio" id="es" name="idioma"/>
-                    <label for="idioma">Español</label>
-                    <input type="radio" id="en" name="idioma"/>
-                    <label for="idioma">Anglès</label>
-                    <input type="radio" id="fr" name="idioma"/>
-                    <label for="idioma">Francés</label>
-                    <input type="radio" id="al" name="idioma"/>
-                    <label for="idioma">Alemà</label>
+                        <input type="radio" id="ca" name="idioma"/>
+                        <label for="idioma">Catalá</label>
+                        <input type="radio" id="es" name="idioma"/>
+                        <label for="idioma">Español</label>
+                        <input type="radio" id="en" name="idioma"/>
+                        <label for="idioma">Anglès</label>
+                        <input type="radio" id="fr" name="idioma"/>
+                        <label for="idioma">Francés</label>
+                        <input type="radio" id="al" name="idioma"/>
+                        <label for="idioma">Alemà</label>
+                        <?php
+                            print_r($_SESSION["imprimir"]["idioma"]);
+                        ?>
                 </p>
                 <p> 
                     <label for="email">Email: </label>
-                    <input type="email" name="email" />
+                    <input type="text" name="email" />
+                    <?php
+                        print_r($_SESSION["imprimir"]["email"]);
+                    ?>
                 </p>
                 <p> 
                     <label for="web">Lloc web: </label>
-                    <input type="url" name="web"/>
+                    <input type="text" name="web"/>
+                    <?php
+                        print_r($_SESSION["imprimir"]["web"]);
+                    ?>
                 </p>
                 <p>
                     <input type="submit" value="enviar"/>
