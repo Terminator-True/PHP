@@ -5,12 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulari</title>
+    <style>
+        .error{
+            color:red;
+        }
+    </style>
 </head>
 <body>
 <?php
 session_start();
  
-$_SESSION["timeout"]=time();
 if (!isset($_SESSION["imprimir"])) {
     $_SESSION["imprimir"]=array("nom"=>"","pass"=>"","formacio"=>"","idioma"=>"","email"=>"","web"=>"");
 }
@@ -21,16 +25,16 @@ if (!isset($_SESSION["imprimir"])) {
                 <p> 
                     <label for="nom">Nom:</label>
                     <input type="text" name="nom" />
-                    <?php
+                    <div class="error"><?php
                     print_r($_SESSION["imprimir"]["nom"]);
-                    ?> 
+                    ?></div>
                 </p>
                 <p> 
                     <label for="pass">Password:</label>
                     <input type="password" name="pass" required/>
-                    <?php
+                    <div class="error"><?php
                     print_r($_SESSION["imprimir"]["pass"]);
-                    ?> 
+                    ?> </div>
                 </p>
                 <p> 
                     <label for="pass">Formació:</label>
@@ -52,23 +56,23 @@ if (!isset($_SESSION["imprimir"])) {
                         <label for="idioma">Francés</label>
                         <input type="radio" id="al" name="idioma"/>
                         <label for="idioma">Alemà</label>
-                        <?php
+                        <div class="error"><?php
                             print_r($_SESSION["imprimir"]["idioma"]);
-                        ?>
+                        ?></div>
                 </p>
                 <p> 
                     <label for="email">Email: </label>
                     <input type="text" name="email" />
-                    <?php
+                    <div class="error"><?php
                         print_r($_SESSION["imprimir"]["email"]);
-                    ?>
+                    ?></div>
                 </p>
                 <p> 
                     <label for="web">Lloc web: </label>
                     <input type="text" name="web"/>
-                    <?php
+                    <div class="error"><?php
                         print_r($_SESSION["imprimir"]["web"]);
-                    ?>
+                    ?></div>    
                 </p>
                 <p>
                     <input type="submit" value="enviar"/>
