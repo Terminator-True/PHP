@@ -4,7 +4,7 @@
         margin: auto;
         margin-top:10px;
         margin-left:10px;
-        background-color:#708090;
+        background-color:PaleTurquoise;
         width:20%;
         padding:20px;
         height:500px;

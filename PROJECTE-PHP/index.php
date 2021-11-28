@@ -4,20 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="images\ico2.svg" type="image/icon type">
+    <title>BlackLotus</title>
     <style>
+        body{
+            background-color:Moccasin;
+        }
         .Caixa_principal{
             position: relative;
             margin:auto;
             margin-top:10px;
-            background-color:#708090;
-            width:50%;
+            background-color:PaleTurquoise;
+            width:45%;
             padding:20px;
-            height:500px;
             box-shadow:1px 1px 5px black;
+            height:500px;
 
         }
+        /* The alert message box */
+        .alert {
+        bottom: 0px;
+        position: absolute;
+        padding: 20px;
+        color: white;
+        margin-bottom: 15px;
+        }
+
+        .alert .green{
+            background-color: green; 
+
+        }
+        .alert .red {
+            background-color: #f44336;
+        }
+
+        /* The close button */
+        .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        }
+
+        /* When moving the mouse over the close button */
+        .closebtn:hover {
+        color: black;
+        }
     </style>
+    <?php
+        session_start();
+        if (!isset($_SESSION["imprimir"])) {
+            $_SESSION["imprimir"]="";
+        }
+    ?>  
 </head>
 <body>
 <!-- HEADER -->
@@ -29,8 +72,20 @@
     <!-- CAIXA DRETA -->
     <?php include "includes/right.php" ?>
 <!-- CAIXA PRINCIPAL -->
-    <div class="Caixa_principal">
-
+<div class="Caixa_principal">
+    <?php
+    if ($_SESSION["imprimir"]!="") {
+        if ($_SESSION["imprimir"]=="Usuari creat Correctament!") {
+            ?> <script></script><?php
+        }else {
+            ?> <script></script><?php
+        }
+    }
+            ?>
+            <div class='alert'>
+            <?php print_r($_SESSION["imprimir"])?>
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            </div>
     </div>
 <!-- FOOTER -->
 <?php include "includes/footer.php" ?>

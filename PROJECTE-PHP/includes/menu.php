@@ -2,16 +2,12 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  
 }
-
 .topnav {
   overflow: hidden;
-  background-color: #708090;
+  background-color: PaleTurquoise;
   box-shadow:1px 1px 5px black;
-
 }
-
 .topnav a {
   float: left;
   display: block;
@@ -20,6 +16,7 @@ body {
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+
 }
 
 .topnav a:hover {
@@ -28,10 +25,14 @@ body {
 }
 
 .topnav a.active {
-  background-color: #2196F3;
-  color: white;
+  background-color: LightPink;
+  color: #DCDCDC;
 }
+.topnav-right {
+  float: right;
+  background-color: LightPink;
 
+}
 /*----------------- Formularis-----------------*/ 
 /* Full-width input fields */
 input[type=text], input[type=password],input[type=email] {
@@ -41,11 +42,12 @@ input[type=text], input[type=password],input[type=email] {
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  background-color:;
 }
 
 /* Set a style for all buttons */
 button {
-  background-color: #2196F3;
+  background-color: LightPink;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -85,7 +87,7 @@ span.psw {
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: PaleTurquoise;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
   width: 30%; /* Could be more or less, depending on screen size */
@@ -139,22 +141,12 @@ span.psw {
   color: #f44336;
   cursor: pointer;
 }
-.topnav-right {
-  float: right;
-  background-color:#2196F3;
-}
+
 </style>
 
-<?php session_start();
-    if (!isset($_SESSION["imprimir"])) {
-        $_SESSION["imprimir"]="";
-    }
-?>
 
 <div class="topnav">
-<div class="topnav-centered">
-    <a href="#home" class="active">Home</a>
-  </div>
+  <a href="#home" class="active">Home</a>
   <a href="#about">About me</a>
   <a href="#contact">Contacte</a>
   <div class="topnav-right">
@@ -203,13 +195,6 @@ span.psw {
     </div>
   </form>
 </div>
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
-  </div>
 <script>
 var modal_log = document.getElementById('Login');
 var modal_sign = document.getElementById('Sign');

@@ -1,9 +1,11 @@
 <style>
     #Footer {
-        background-color:#708090;
+        background-color:PaleTurquoise;
         color:black;
         width: 100%;
-        margin-top: 100%;        }
+        margin-top: 100%;        
+        box-shadow:1px 1px 5px black;
+        }
 </style>
 <div id="Footer" align="center">
     <table>
