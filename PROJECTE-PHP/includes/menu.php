@@ -148,8 +148,8 @@ span.psw {
 
 <div class="topnav">
   <a href="#home" class="active">Home</a>
-  <a href="#about">About me</a>
   <a href="#contact">Contacte</a>
+  
   <div class="topnav-right">
       <a href="#" onclick="document.getElementById('Login').style.display='block'" style="width:auto;">Login</a>
       <a href="#" onclick="document.getElementById('Sign').style.display='block'" style="width:auto;">Sign Up</a>
@@ -177,16 +177,16 @@ span.psw {
 
 <div id="Sign" class="modal">
   <span onclick="document.getElementById('Sign').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <form class="modal-content animate" action="Funcionalitats/sign.php" method="post ">
+  <form class="modal-content animate" action="Funcionalitats\sign.php" method="post">
     <div class="container">
       <h1>Crear Compte</h1>
       <hr>
       <label for="email"><b>Email</b></label>
       <input type="email" placeholder="Email" name="email" required>
       <label for="nom"><b>Nom</b></label>
-      <input type="text" placeholder="Nom" name="nom"  required>
+      <input type="text" placeholder="Nom" name="nom" required>
       <label for="cognom"><b>Cognom</b></label>
-      <input type="text" placeholder="Cognom" name="cognom"  required>
+      <input type="text" placeholder="Cognom" name="cognom" required>
       <label for="psw"><b>Password</b></la  bel>
       <input type="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Ha de tenir almenys un número, una majúscula, una minúscula i tenir almenys 8 carácters o més " name="psw" required>
 

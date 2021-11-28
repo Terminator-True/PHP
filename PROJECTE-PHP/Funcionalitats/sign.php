@@ -1,29 +1,36 @@
 <?php
+include "connect.php";
+include "helpers.php";
+
 session_start();
 $servername = "localhost";
 $username = "admin";
 $password = "Admin@123";
 $bd = "blog";
 $_SESSION["imprimir"]="";
-$conn = new mysqli($servername, $username, $password, $bd);
+$mysqli = mysqli_connect($servername, $username, $password, $bd);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($mysqli->connect_errno) {
+    printf("Falló la conexión: %s\n", $mysqli->connect_error);
+    exit();
 }
-
 if (isset($_POST["email"]) && isset($_POST["nom"]) && isset($_POST["cognom"]) && isset($_POST["psw"])) {
-    $nom = $_POST['nom'];
-    $cognom = $_POST["cognom"];
-    $email = $_POST["email"];
-    $psw = password_hash($_POST["psw"],PASSWORD_BYCRYPT, ['cost' =>4]);
-    $sql = "INSERT INTO  usuaris VALUES(null,$nom,$cognom,$email,$psw,CURDATE());";
-    if ($conn->query($sql) === TRUE) {
-        $_SESSION["imprimir"]="Usuari creat Correctament!";
+    $error=mostraerorr($_POST["nom"],$_POST["cognom"],$_POST["email"],$_POST["psw"]);
+    if ($error=="") {
+        $nom = $_POST['nom'];
+        $cognom = $_POST["cognom"];
+        $email = $_POST["email"];
+        $psw = strval(password_hash($_POST["psw"],PASSWORD_DEFAULT));
+        $sql = "INSERT INTO usuaris VALUES (null,'$nom','$cognom','$email','$psw',CURDATE());";
+        if ($mysqli -> query($sql) === TRUE){
+            $_SESSION["imprimir"]="Usuari creat Correctament!";
+        }else {
+            $_SESSION["imprimir"]="Error al crear l'usuari, intenta-ho de nou:   \n".$mysqli->error;
+        }       
     }else {
-        $_SESSION["imprimir"]="Error al crear l'usuari, intenta-ho de nou";
+        $_SESSION["imprimir"]=$error;
     }
 }
 
-$conn->close();
-header("Location: http://localhost/php-mp07/PROJECTE-PHP/index.php#");
+header("Location: http://localhost/php-mp07/PROJECTE-PHP/index.php#  ");
 ?>
