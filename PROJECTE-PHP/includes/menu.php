@@ -91,6 +91,7 @@ span.psw {
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
   width: 30%; /* Could be more or less, depending on screen size */
+  color:white;
 }
 
 /* The Close Button (x) */
