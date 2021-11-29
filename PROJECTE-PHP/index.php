@@ -55,7 +55,10 @@
         if (!isset($_SESSION["imprimir"])) {
             $_SESSION["imprimir"]="";
         }
-
+        if (!isset($_SESSION["login"])) {
+            $_SESSION["login"]=0;
+        }
+        print_r($_SESSION["login"])
     ?>  
 </head>
 <body>

@@ -26,7 +26,7 @@ body {
 
 .topnav a.active {
   background-color: LightPink;
-  color: #DCDCDC;
+  color: white ;
 }
 .topnav-right {
   float: right;
@@ -153,19 +153,21 @@ input{
 <div class="topnav">
   <a href="#home" class="active">Home</a>
   <a href="#contact">Contacte</a>
-  
-  <div class="topnav-right">
-      <a href="#" onclick="document.getElementById('Login').style.display='block'" style="width:auto;">Login</a>
-      <a href="#" onclick="document.getElementById('Sign').style.display='block'" style="width:auto;">Sign Up</a>
-  </div>
+  <?php
+    session_start();
+    if ($_SESSION["login"] === 0) {
+      include "menu-out.php";
+    }else{
+      include "menu-in.php";
+    }
+  ?>
 
 </div>
 
 <div id="Login" class="modal">
     <span onclick="document.getElementById('Login').style.display='none'" class="close" title="Close Modal">&times;</span>
 
-  <form class="modal-content animate" action="/login.php" method="post">
-      
+  <form class="modal-content animate" action="Funcionalitats\login.php" method="post">
     <div class="container">
         <h1>Identificat</h1>
       <label for="uname"><b>Email</b></label>

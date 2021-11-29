@@ -1,7 +1,6 @@
 <?php
 include "connect.php";
 include "helpers.php";
-
 session_start();
 $servername = "localhost";
 $username = "admin";
@@ -15,7 +14,8 @@ if ($mysqli->connect_errno) {
     exit();
 }
 if (isset($_POST["email"]) && isset($_POST["nom"]) && isset($_POST["cognom"]) && isset($_POST["psw"])) {
-    $error=mostraerorr($_POST["nom"],$_POST["cognom"],$_POST["email"],$_POST["psw"]);
+    $error=mostraerorr($_POST['nom'],$_POST["cognom"],$_POST["email"],$_POST["psw"]);
+    echo $error;
     if ($error=="") {
         $nom = $_POST['nom'];
         $cognom = $_POST["cognom"];
