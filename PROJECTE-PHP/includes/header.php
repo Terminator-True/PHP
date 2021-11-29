@@ -1,6 +1,6 @@
 <style>
     .header{
-        background-color:Moccasin;
+        background-color:Beige;
     }
     .header img {
         width: 5%;

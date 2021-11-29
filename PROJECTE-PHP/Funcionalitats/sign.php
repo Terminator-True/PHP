@@ -25,7 +25,7 @@ if (isset($_POST["email"]) && isset($_POST["nom"]) && isset($_POST["cognom"]) &&
         if ($mysqli -> query($sql) === TRUE){
             $_SESSION["imprimir"]="Usuari creat Correctament!";
         }else {
-            $_SESSION["imprimir"]="Error al crear l'usuari, intenta-ho de nou:   \n".$mysqli->error;
+            $_SESSION["imprimir"]="Error al crear l'usuari, intenta-ho de nou\n";
         }       
     }else {
         $_SESSION["imprimir"]=$error;

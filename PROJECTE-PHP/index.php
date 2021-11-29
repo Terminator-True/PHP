@@ -8,7 +8,7 @@
     <title>BlackLotus</title>
     <style>
         body{
-            background-color:Moccasin;
+            background-color:Beige;
         }
         .Caixa_principal{
             position: relative;
@@ -29,6 +29,8 @@
         color: white;
         margin-bottom: 15px;
         background-color:Plum;
+        border-radius: 50px;
+
         }
 
         /* The close button */
@@ -70,7 +72,7 @@
         <!-- NOTIFICACIÓ -->
         <div id="alert">
         <?php print_r($_SESSION["imprimir"]);$_SESSION["imprimir"]="";?>
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <span class="closebtn" onclick="this.parentElement.style.display='none'";>&times;</span>
         </div>
     </div>
 <!-- FOOTER -->

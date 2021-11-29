@@ -94,6 +94,10 @@ span.psw {
   color:white;
 }
 
+input{
+  background-color:white;
+}
+
 /* The Close Button (x) */
 .close {
   position: absolute;
