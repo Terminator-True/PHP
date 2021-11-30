@@ -58,8 +58,10 @@
         if (!isset($_SESSION["login"])) {
             $_SESSION["login"]=0;
         }
-        print_r($_SESSION["login"])
-    ?>  
+        if (!isset($_SESSION["usuari"])) {
+            $_SESSION["usuari"]="";
+        }
+            ?>  
 </head>
 <body>
 <!-- HEADER -->
