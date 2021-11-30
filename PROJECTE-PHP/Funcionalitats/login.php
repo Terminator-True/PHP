@@ -24,8 +24,10 @@ if (isset($_POST["psw"]) && isset($_POST["email"])) {
         if (password_verify($password,$usuari['password'])) {
             $_SESSION["login"]=1;
         }else {
-            $_SESSION["imprimir"]="Usuari o Pasword incorrectes";
+            $_SESSION["imprimir"]="Pasword incorrecte";
         }
+    }else {
+        $_SESSION["imprimir"]="Usuari incorrecte";
     } 
 }
 header("Location: http://localhost/php-mp07/PROJECTE-PHP/index.php ");
