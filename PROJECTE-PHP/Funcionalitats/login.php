@@ -23,6 +23,8 @@ if (isset($_POST["psw"]) && isset($_POST["email"])) {
         // Verifiquem el password
         if (password_verify($password,$usuari['password'])) {
             $_SESSION["login"]=1;
+        }else {
+            $_SESSION["imprimir"]="Usuari o Pasword incorrectes";
         }
     } 
 }

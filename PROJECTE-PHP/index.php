@@ -22,16 +22,6 @@
 
         }
         /* The alert message box */
-        #alert {
-        bottom: 0px;
-        position: absolute;
-        padding: 20px;
-        color: white;
-        margin-bottom: 15px;
-        background-color:Plum;
-        border-radius: 50px;
-
-        }
 
         /* The close button */
         .closebtn {
@@ -75,7 +65,14 @@
 <!-- CAIXA PRINCIPAL -->
 <div class="Caixa_principal">
         <!-- NOTIFICACIÓ -->
-        <?php if (!$_SESSION["imprimir"]=="") {include "includes/noti.php";}?>
+        <?php 
+        if (!$_SESSION["imprimir"]=="") {
+            if ($_SESSION["imprimir"]=="Usuari creat Correctament!") {
+                include "includes/notiSuccess.php";
+            }else {
+                include "includes/notiError.php";
+            }
+            }?>
 
     </div>
 <!-- FOOTER -->
