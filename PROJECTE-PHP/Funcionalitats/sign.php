@@ -32,5 +32,5 @@ if (isset($_POST["email"]) && isset($_POST["nom"]) && isset($_POST["cognom"]) &&
     }
 }
 
-header("Location: http://localhost/php-mp07/PROJECTE-PHP/index.php#  ");
+header("Location: ../index.php ");
 ?>
