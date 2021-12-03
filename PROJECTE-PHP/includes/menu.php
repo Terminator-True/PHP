@@ -148,13 +148,11 @@ input{
 }
 
 </style>
-
-
 <div class="topnav">
   <a href="#home" class="active">Home</a>
   <a href="#contact">Contacte</a>
   <?php
-    session_start();
+    #session_start();
     if ($_SESSION["login"] === 0) {
       include "menu-out.php";
     }else{

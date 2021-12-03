@@ -30,5 +30,5 @@ if (isset($_POST["psw"]) && isset($_POST["email"])) {
         $_SESSION["imprimir"]="Usuari incorrecte";
     } 
 }
-header("Location: http://localhost/php-mp07/PROJECTE-PHP/index.php ");
+header("Location: http://localhost/php-mp07/PROJECTE-PHP/ ");
 ?>
