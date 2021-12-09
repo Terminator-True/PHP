@@ -191,7 +191,7 @@ input{
       <input type="text" placeholder="Nom" name="nom" required>
       <label for="cognom"><b>Cognom</b></label>
       <input type="text" placeholder="Cognom" name="cognom" required>
-      <label for="psw"><b>Password</b></la  bel>
+      <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Ha de tenir almenys un número, una majúscula, una minúscula i tenir almenys 8 carácters o més " name="psw" required>
 
       <div class="clearfix">
