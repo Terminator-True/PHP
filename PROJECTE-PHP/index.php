@@ -18,7 +18,6 @@
             width:45%;
             padding:20px;
             box-shadow:1px 1px 5px black;
-            height:500px;
 
         }
         /* The alert message box */
@@ -39,6 +38,7 @@
         .closebtn:hover {
         color: black;
         }
+ }
     </style>
     <?php
         session_start();
@@ -64,6 +64,18 @@
     <?php include "includes/right.php" ?>
 <!-- CAIXA PRINCIPAL -->
 <div class="Caixa_principal">
+    <!-- ENTRADES -->
+    <?php   
+        include "Funcionalitats/entrades.php";
+        $entrades=GetEntrades();
+        for ($i=0; $i < count($entrades); $i++) { 
+            $entrada = $entrades[$i];
+            include "includes/entrada.php";
+        }
+    ?>  
+ 
+
+
         <!-- NOTIFICACIÓ -->
         <?php 
         if (!$_SESSION["imprimir"]=="") {
