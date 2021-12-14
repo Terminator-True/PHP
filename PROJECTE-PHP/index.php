@@ -5,8 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images\ico2.svg" type="image/icon type">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
     <title>BlackLotus</title>
     <style>
+        *{
+font-family: 'Fuzzy Bubbles', cursive;
+        }
         body{
             background-color:Beige;
         }
@@ -51,6 +57,9 @@
         if (!isset($_SESSION["usuari"])) {
             $_SESSION["usuari"]="";
         }
+        if (!isset($_SESSION["id"])) {
+            $_SESSION["id"]="";
+        }
             ?>  
 </head>
 <body>
@@ -65,27 +74,28 @@
 <!-- CAIXA PRINCIPAL -->
 <div class="Caixa_principal">
     <!-- ENTRADES -->
-    <?php   
+        <?php   
+            if ($_SESSION["login"]==1) {
+                include "includes/afegir-entrada.php";
+            }
+        ?> 
+        <?php
         include "Funcionalitats/entrades.php";
         $entrades=GetEntrades();
-        for ($i=0; $i < count($entrades); $i++) { 
+        for ($i=count($entrades)-1; $i > 0; $i--) { 
             $entrada = $entrades[$i];
             include "includes/entrada.php";
         }
-    ?>  
- 
-
-
+        ?> 
         <!-- NOTIFICACIÓ -->
         <?php 
         if (!$_SESSION["imprimir"]=="") {
-            if ($_SESSION["imprimir"]=="Usuari creat Correctament!") {
+            if ($_SESSION["imprimir"]=="Usuari creat Correctament!" || $_SESSION["imprimir"]=="Entrada creada!" || $_SESSION["imprimir"]=="Categoría creada!") {
                 include "includes/notiSuccess.php";
             }else {
                 include "includes/notiError.php";
             }
-            }?>
-
+        }?>
     </div>
 <!-- FOOTER -->
 <?php include "includes/footer.php" ?>

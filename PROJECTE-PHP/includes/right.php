@@ -34,10 +34,139 @@
 
 #myMenu li a:hover {
   background-color: #eee;
+  color:black;
 }
+
+.right a{
+    background-color:LightPink;
+    padding:10px;
+    color:white;
+}
+.right a:hover{
+  background-color: #eee;
+  color:black;
+
+
+}
+/*----------------- Formularis-----------------*/ 
+/* Full-width input fields */
+input[type=text], input[type=password],input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background-color:;
+}
+
+/* Set a style for all buttons */
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: PaleTurquoise;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 30%; /* Could be more or less, depending on screen size */
+  color:white;
+}
+
+input{
+  background-color:white;
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/*Add Zoom Animation*/
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+ 
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
 </style>
 <div class="right" >
+
     <h2>Categoríes</h2>
+    <?php 
+        if ($_SESSION["login"]==1) {
+            include "includes/afegir-categories.php";
+        }
+    ?>
+<div id="category" class="modal">
+    <span onclick="document.getElementById('category').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content animate" action="Funcionalitats\comprova-categoria.php" method="post">
+    <div class="container">
+        <h1>Crea Categoría</h1>
+      <label for="uname"><b>Nom de la categoría: </b></label>
+      <input type="text" placeholder="Nom" name="nom" required>
+      <button type="submit">Crear</button>
+    </div>
+  </form>
+</div>
         <input type="text" id="mySearch" onkeyup="filtrar()" placeholder="Search.." title="Type in a category">
         <ul id="myMenu">
             <?php
@@ -50,6 +179,14 @@
         </ul>
     
     <script>
+        var modal_category = document.getElementById('category');
+        // Si clickes fora del formulari desapareix
+        window.onclick = function(event) {
+            if (event.target == modal_category) {
+                modal_category.style.display = "none";
+            }
+        }
+
     function filtrar() {
         var input, filter, ul, li, a, i;
         input = document.getElementById("mySearch");

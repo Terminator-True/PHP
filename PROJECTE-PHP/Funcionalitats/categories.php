@@ -1,6 +1,6 @@
 <?php
 include "connect.php";
-function GetCategories(){
+function GetCategories($nom=TRUE){
     $servername = "localhost";
     $username = "admin";
     $password = "Admin@123";

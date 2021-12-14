@@ -15,7 +15,6 @@ if ($mysqli->connect_errno) {
 }
 if (isset($_POST["email"]) && isset($_POST["nom"]) && isset($_POST["cognom"]) && isset($_POST["psw"])) {
     $error=mostraerorr($_POST['nom'],$_POST["cognom"],$_POST["email"],$_POST["psw"]);
-    echo $error;
     if ($error=="") {
         $nom = $_POST['nom'];
         $cognom = $_POST["cognom"];
@@ -32,9 +31,5 @@ if (isset($_POST["email"]) && isset($_POST["nom"]) && isset($_POST["cognom"]) &&
     }
 }
 
-<<<<<<< HEAD
-header("Location: http://localhost/php-mp07/PROJECTE-PHP/  ");
-=======
 header("Location: ../index.php ");
->>>>>>> 06d3c83724ba93f72f5e01cc062b1141e84367a1
 ?>
