@@ -9,7 +9,12 @@ function GetCategories($nom=TRUE){
     $cat=[];
     $categories=$mysqli -> query("SELECT nombre FROM categories;");
     for ($i=0; $i < $categories -> num_rows; $i++){ 
-        $cat[$i]=mysqli_fetch_row($categories)[0];
+        if ($nom==TRUE){
+            $cat[$i]=mysqli_fetch_row($categories)[0];
+        }else{
+            $cat[$i]=mysqli_fetch_row($categories);
+        }
+        
     }
     return $cat;
 }

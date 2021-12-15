@@ -33,5 +33,13 @@ function GetUser($id){
     $user=$mysqli -> query("SELECT nom FROM usuaris WHERE id=$id;");
     return mysqli_fetch_row($user)[0];
 }
-
+function GetEntrada($id){
+    $servername = "localhost";
+    $username = "admin";
+    $password = "Admin@123";
+    $bd = "blog";
+    $mysqli = mysqli_connect($servername, $username, $password, $bd);
+    $entrada=$mysqli -> query("SELECT * FROM entrades WHERE id=$id;");
+    return mysqli_fetch_row($entrada);
+}
 ?>

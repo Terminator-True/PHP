@@ -31,10 +31,26 @@
         resize: vertical;
     }
 </style>
+<?php
+
+include "../Funcionalitats/entrades.php";
+if (isset($_POST["modifica"])) {
+    $entrada=GetEntrada($_POST["id"]);
+    $ruta="../Funcionalitats/modifica.php";
+    $titol = $entrada[3];
+    $contingut = $entrada[4];
+}else {
+    $ruta="../Funcionalitats/comprova-entrada.php";
+    $titol="Titol";
+    $contingut="Alguna cosa que dir?";
+}
+
+?>
+
 <div id="entrada">    
-    <form action="Funcionalitats/comprova-entrada.php" method="post">
-        <input type="text" name="title" value="Titol">
-        <textarea name="contingut" rows="5">Alguna cosa que dir?</textarea>
+    <form action=<?php echo "$ruta";?> method="post">
+        <input type="text" name="title" value=<?php echo "$titol";?>>
+        <textarea name="contingut" rows="5"><?php echo "$contingut";?></textarea>
         <select id="cat" name="categoria">
             <?php
                     include "../Funcionalitats/categories.php";
