@@ -17,7 +17,7 @@ if (isset($_POST["title"]) && isset($_POST["contingut"]) && isset($_POST["catego
     $contingut=$_POST["contingut"];
     $categoria=$_POST["categoria"];
     $idU=$_SESSION["id"];
-    $sql="INSERT INTO entrades VALUES (NULL,$idU,(SELECT id FROM categories WHERE nombre='$categoria'),'$title','$contingut',CURRENT_DATE());";
+    $sql="INSERT INTO entrades VALUES ((SELECT id FROM entrades WHERE nombre='$categoria'),$idU,(SELECT id FROM categories WHERE nombre='$categoria'),'$title','$contingut',CURRENT_DATE());";
     if ($mysqli -> query($sql) === TRUE){
         $_SESSION["imprimir"]="Entrada creada!";
     }else {

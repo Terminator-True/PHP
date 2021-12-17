@@ -1,5 +1,6 @@
 <?php
 include "connect.php";
+include "categories.php";
 session_start();
 $servername = "localhost";
 $username = "admin";
@@ -18,13 +19,12 @@ if (isset($_POST["nom"])){
     if (!preg_match("/[a-zA-Z ]/i",$nom)) {
         $_SESSION["imprimir"].="Nom de categoría incorrecte ";
     }else {
-
-        $sql="INSERT INTO categories VALUES (NULL,'$nom');";
-        if ($mysqli -> query($sql) === TRUE){
-            $_SESSION["imprimir"].="Categoría creada!";
-        }else {
-            $_SESSION["imprimir"].="Error al crear la categoría\n";
-        }  
+            $sql="INSERT INTO categories VALUES (NULL,'$nom');";
+            if ($mysqli -> query($sql) === TRUE){
+                $_SESSION["imprimir"].="Categoría creada!";
+            }else {
+                $_SESSION["imprimir"].="Error al crear la categoría\n";
+            }  
     }
 
 }

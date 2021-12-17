@@ -1,12 +1,13 @@
 <style>
 #alert {
-        top:250px;
+        top:28%;
+        width:280px;
         position: absolute;
         padding: 20px;
         color: white;
         background-color:Tomato;
         border-radius: 50px;
-        left:150px;
+        left:120%;
         }
 </style>
 <div id="alert">
