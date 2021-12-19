@@ -15,4 +15,5 @@ function mostraerorr($nom,$cognom,$email,$psw){
     }
     return $imprimir ;
 }
+
 ?>

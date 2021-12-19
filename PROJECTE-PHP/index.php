@@ -44,7 +44,7 @@ font-family: 'Fuzzy Bubbles', cursive;
         .closebtn:hover {
         color: black;
         }
- }
+
     </style>
     <?php
         session_start();
@@ -60,6 +60,19 @@ font-family: 'Fuzzy Bubbles', cursive;
         if (!isset($_SESSION["id"])) {
             $_SESSION["id"]="";
         }
+        if (!isset($_SESSION["ruta"])) {
+            $_SESSION["ruta"]="Funcionalitats/comprova-entrada.php";
+        }
+        if (!isset($_SESSION["titol"])) {
+            $_SESSION["titol"]="Titol";
+        }
+        if (!isset($_SESSION["contingut"])) {
+            $_SESSION["contingut"]="Alguna cosa que dir?";
+        }
+        if (!isset($_SESSION["idEntrada"])) {
+            $_SESSION["idEntrada"]=0;
+        }
+        
             ?>  
 </head>
 <body>
@@ -68,7 +81,10 @@ font-family: 'Fuzzy Bubbles', cursive;
 <!-- MENU -->
 <?php include "includes/menu.php" ?>
     <!-- CAIXA ESQUERRA -->
-    <?php include "includes/left.php" ?>
+    
+    <?php 
+        include "includes/left.php";
+    ?>
     <!-- CAIXA DRETA -->
     <?php include "includes/right.php" ?>
 <!-- CAIXA PRINCIPAL -->
@@ -90,7 +106,7 @@ font-family: 'Fuzzy Bubbles', cursive;
         <!-- NOTIFICACIÓ -->
         <?php 
         if (!$_SESSION["imprimir"]=="") {
-            if ($_SESSION["imprimir"]=="Usuari creat Correctament!" || $_SESSION["imprimir"]=="Entrada creada!" || $_SESSION["imprimir"]=="Categoría creada!") {
+            if ($_SESSION["imprimir"]=="Usuari creat Correctament!" || $_SESSION["imprimir"]=="Entrada creada!" || $_SESSION["imprimir"]=="Categoría creada!" || $_SESSION["imprimir"]=="Entrada modificada!") {
                 include "includes/notiSuccess.php";
             }else {
                 include "includes/notiError.php";
