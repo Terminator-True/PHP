@@ -7,7 +7,7 @@
             #session_start();
             if ($_SESSION["id"]==$entrada[1]) {
                 echo '<form action="includes/afegir-entrada.php" method="post"><button style="width:15%;" name="modifica" type="submit">Modifica</button><input type="hidden" name="id" value="'.$entrada[0].'" ></form>';
-            
+                include "Form-eliminar.php";
             }
         ?>
     </div>

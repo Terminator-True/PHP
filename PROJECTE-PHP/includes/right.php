@@ -25,7 +25,7 @@
   background-color:LightPink;
 }
 
-#myMenu li a {
+#myMenu li button {
   padding: 12px;
   text-decoration: none;
   color: white;
@@ -37,6 +37,17 @@
   color:black;
 }
 
+.right button{
+    background-color:LightPink;
+    padding:10px;
+    color:white;
+}
+.right button:hover{
+  background-color: #eee;
+  color:black;
+
+
+}
 .right a{
     background-color:LightPink;
     padding:10px;
@@ -45,8 +56,6 @@
 .right a:hover{
   background-color: #eee;
   color:black;
-
-
 }
 /*----------------- Formularis-----------------*/ 
 /* Full-width input fields */
@@ -98,7 +107,6 @@ input{
   background-color:white;
 }
 
-/* The Close Button (x) */
 .close {
   position: absolute;
   right: 25px;
@@ -114,7 +122,6 @@ input{
   cursor: pointer;
 }
 
-/*Add Zoom Animation*/
 .animate {
   -webkit-animation: animatezoom 0.6s;
   animation: animatezoom 0.6s
@@ -130,8 +137,6 @@ input{
   to {transform: scale(1)}
 }
 
- 
-/* The Close Button (x) */
 .close {
   position: absolute;
   right: 35px;
@@ -146,10 +151,13 @@ input{
   color: #f44336;
   cursor: pointer;
 }
-
+.categorias > button {
+  background-color: LightPink;
+  color: white;
+  cursor: pointer;
+  }
 </style>
 <div class="right" >
-
     <h2>Categoríes</h2>
     <?php 
         if ($_SESSION["login"]==1) {
@@ -167,17 +175,20 @@ input{
     </div>
   </form>
 </div>
+<div id="categorias"> 
         <input type="text" id="mySearch" onkeyup="filtrar()" placeholder="Search.." title="Type in a category">
+        <form class="categorias" style="width:25%;" action="Funcionalitats/filtrar.php" method="post"><input type="hidden" name="id" value="0"><button type="submit">Restableix</button></form>
         <ul id="myMenu">
             <?php
                 include "Funcionalitats/categories.php";
                 $categories=GetCategories();
+                $id_categories=GetCategories($nom=FALSE);
                 for ($i=0; $i < count($categories); $i++) { 
-                    echo "<li><a href='".$categories[$i]."'>".$categories[$i]."</a></li>";
+                    echo '<li><form class="categorias" action="Funcionalitats/filtrar.php" method="post"><input type="hidden" name="id" value="'.$id_categories[$i].'" ><button type="submit">'.$categories[$i].'</button></form></li>';
                 }
             ?>
         </ul>
-    
+</div>
     <script>
         var modal_category = document.getElementById('category');
         // Si clickes fora del formulari desapareix
@@ -187,14 +198,19 @@ input{
             }
         }
 
+<<<<<<< HEAD
+    function filtrar() {
+        var input, filter, ul, li, button, i;
+=======
      function filtrar() {
         var input, filter, ul, li, a, i;
+>>>>>>> eb8e01966620f49ccc46b428608ed6dfe7e06c0a
         input = document.getElementById("mySearch");
         filter = input.value.toUpperCase();
         ul = document.getElementById("myMenu");
         li = ul.getElementsByTagName("li");
         for (i = 0; i < li.length; i++) {
-            a = li[i].getElementsByTagName("a")[0];
+            a = li[i].getElementsByTagName("button")[0];
             if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
             li[i].style.display = "";
             } else {

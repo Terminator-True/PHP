@@ -16,4 +16,11 @@ function mostraerorr($nom,$cognom,$email,$psw){
     return $imprimir ;
 }
 
+function mostraerorr_passwd($psw){
+    $imprimir="";
+    if (!preg_match("/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/i",$psw)) {
+        $imprimir=$imprimir."Password Incorrecte ! ";
+    }
+    return $imprimir ;
+}
 ?>
