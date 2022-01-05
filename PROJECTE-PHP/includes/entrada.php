@@ -4,7 +4,7 @@
     <p><?php print_r($entrada[4]);?>
         <div style="margin: 24px 0;">
         <?php 
-            session_start();
+            #session_start();
             if ($_SESSION["id"]==$entrada[1]) {
                 echo '<form action="includes/afegir-entrada.php" method="post"><button style="width:15%;" name="modifica" type="submit">Modifica</button><input type="hidden" name="id" value="'.$entrada[0].'" ></form>';
             
