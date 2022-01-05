@@ -7,15 +7,16 @@ function GetCategories($nom=TRUE){
     $bd = "blog";
     $mysqli = mysqli_connect($servername, $username, $password, $bd);
     $cat=[];
-    $categories=$mysqli -> query("SELECT nombre FROM categories;");
+    $categories=$mysqli -> query("SELECT * FROM categories;");
     for ($i=0; $i < $categories -> num_rows; $i++){ 
         if ($nom==TRUE){
-            $cat[$i]=mysqli_fetch_row($categories)[0];
+            $cat[$i]=mysqli_fetch_row($categories)[1];
         }else{
-            $cat[$i]=mysqli_fetch_row($categories);
+            $cat[$i]=mysqli_fetch_row($categories)[0];
         }
         
     }
     return $cat;
 }
+
 ?>

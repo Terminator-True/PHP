@@ -20,7 +20,7 @@
         </tr>
         
         <tr style="color:white">
-            <td colspan="4" align="center">© 2020   | Tots els drets reservats</td>
+            <td colspan="4" align="center">© 2022   | Tots els drets reservats</td>
         </tr>
 
         <tr style="color:white">

@@ -26,9 +26,6 @@ font-family: 'Fuzzy Bubbles', cursive;
             box-shadow:1px 1px 5px black;
 
         }
-        /* The alert message box */
-
-        /* The close button */
         .closebtn {
         margin-left: 15px;
         color: white;
@@ -40,7 +37,6 @@ font-family: 'Fuzzy Bubbles', cursive;
         transition: 0.3s;
         }
 
-        /* When moving the mouse over the close button */
         .closebtn:hover {
         color: black;
         }
@@ -58,7 +54,7 @@ font-family: 'Fuzzy Bubbles', cursive;
             $_SESSION["usuari"]="";
         }
         if (!isset($_SESSION["id"])) {
-            $_SESSION["id"]="";
+            $_SESSION["id"]=0;
         }
         if (!isset($_SESSION["ruta"])) {
             $_SESSION["ruta"]="Funcionalitats/comprova-entrada.php";
@@ -72,16 +68,23 @@ font-family: 'Fuzzy Bubbles', cursive;
         if (!isset($_SESSION["idEntrada"])) {
             $_SESSION["idEntrada"]=0;
         }
-        
-            ?>  
+        if (!isset($_SESSION["email"])) {
+            $_SESSION["email"]="";
+        }
+        if (!isset($_SESSION["category_id"])) {
+            $_SESSION["category_id"];
+        }
+        if (!isset($_SESSION["Print_entrades"])) {
+            $_SESSION["Print_entrades"]=0;
+        }
+            ?>
 </head>
 <body>
 <!-- HEADER -->
-<?php include "includes/header.php" ?>
+<?php include "splitincludes/header.php" ?>
 <!-- MENU -->
 <?php include "includes/menu.php" ?>
     <!-- CAIXA ESQUERRA -->
-    
     <?php 
         include "includes/left.php";
     ?>
@@ -100,13 +103,22 @@ font-family: 'Fuzzy Bubbles', cursive;
         $entrades=GetEntrades();
         for ($i=count($entrades)-1; $i > 0; $i--) { 
             $entrada = $entrades[$i];
-            include "includes/entrada.php";
+            if ($_SESSION["Print_entrades"]==$_SESSION["id"]) {
+                if ($_SESSION["id"]==$entrada[1]) {
+                    include "includes/entrada.php";                
+                }
+            }elseif ($_SESSION["category_id"]==0){
+                include "includes/entrada.php";
+            }elseif($_SESSION["category_id"]==$entrada[2]){
+                include "includes/entrada.php";
+            }
         }
+        $_SESSION["Print_entrades"]=0;
         ?> 
         <!-- NOTIFICACIÓ -->
         <?php 
         if (!$_SESSION["imprimir"]=="") {
-            if ($_SESSION["imprimir"]=="Usuari creat Correctament!" || $_SESSION["imprimir"]=="Entrada creada!" || $_SESSION["imprimir"]=="Categoría creada!" || $_SESSION["imprimir"]=="Entrada modificada!") {
+            if ($_SESSION["imprimir"]=="Usuari creat Correctament!" || $_SESSION["imprimir"]=="Entrada creada!" || $_SESSION["imprimir"]=="Categoría creada!" || $_SESSION["imprimir"]=="Entrada modificada!" ||  $_SESSION["imprimir"]=="Perfil modificat!" || $_SESSION["imprimir"]=="Entrada eliminada correctament!" ) {
                 include "includes/notiSuccess.php";
             }else {
                 include "includes/notiError.php";
@@ -115,6 +127,5 @@ font-family: 'Fuzzy Bubbles', cursive;
     </div>
 <!-- FOOTER -->
 <?php include "includes/footer.php" ?>
-
 </body>
 </html>

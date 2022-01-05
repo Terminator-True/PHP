@@ -13,7 +13,6 @@ function GetEntrades(){
     }
     return $en;
 }
-
 function GetCategoria($id){
     $servername = "localhost";
     $username = "admin";
