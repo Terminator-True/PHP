@@ -198,8 +198,13 @@ input{
             }
         }
 
+<<<<<<< HEAD
     function filtrar() {
         var input, filter, ul, li, button, i;
+=======
+     function filtrar() {
+        var input, filter, ul, li, a, i;
+>>>>>>> eb8e01966620f49ccc46b428608ed6dfe7e06c0a
         input = document.getElementById("mySearch");
         filter = input.value.toUpperCase();
         ul = document.getElementById("myMenu");
