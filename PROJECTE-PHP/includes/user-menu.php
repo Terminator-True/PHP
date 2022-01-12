@@ -13,7 +13,7 @@
       <input type="text" value=<?php print_r($_SESSION["email"]) ?> name="user" required>
       <label for="uname"><b>Password: </b></label>
       <input type="password" placeholder="Password" name="old_passwd" required>
-      <label for="uname"><b>Nou Password: </b></label>
+      <label for="uname"><b>Nou Password:</b></label>
       <input type="password" placeholder="Nou Password" name="new_passwd">
       <button type="submit">Canviar</button>
     </div>

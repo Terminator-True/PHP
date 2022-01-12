@@ -66,22 +66,23 @@ font-family: 'Fuzzy Bubbles', cursive;
             $_SESSION["contingut"]="Alguna cosa que dir?";
         }
         if (!isset($_SESSION["idEntrada"])) {
-            $_SESSION["idEntrada"]=0;
+            $_SESSION["idEntrada"]=-3;
         }
         if (!isset($_SESSION["email"])) {
             $_SESSION["email"]="";
         }
         if (!isset($_SESSION["category_id"])) {
-            $_SESSION["category_id"];
+            $_SESSION["category_id"]=-2;
+
         }
         if (!isset($_SESSION["Print_entrades"])) {
-            $_SESSION["Print_entrades"]=0;
+            $_SESSION["Print_entrades"]=-1;
         }
             ?>
 </head>
 <body>
 <!-- HEADER -->
-<?php include "splitincludes/header.php" ?>
+<?php include "includes/header.php" ?>
 <!-- MENU -->
 <?php include "includes/menu.php" ?>
     <!-- CAIXA ESQUERRA -->
@@ -107,9 +108,9 @@ font-family: 'Fuzzy Bubbles', cursive;
                 if ($_SESSION["id"]==$entrada[1]) {
                     include "includes/entrada.php";                
                 }
-            }elseif ($_SESSION["category_id"]==0){
+            }else if($_SESSION["category_id"]==$entrada[2]){
                 include "includes/entrada.php";
-            }elseif($_SESSION["category_id"]==$entrada[2]){
+            }else {
                 include "includes/entrada.php";
             }
         }
@@ -126,6 +127,6 @@ font-family: 'Fuzzy Bubbles', cursive;
         }?>
     </div>
 <!-- FOOTER -->
-<?php include "includes/footer.php" ?>
+<?php include "includes/footer.php"?>
 </body>
 </html>

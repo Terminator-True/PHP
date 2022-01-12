@@ -43,12 +43,11 @@ if (isset($_POST["modifica"])) {
     header("Location: ../index.php ");
 }
 
-
 ?>
 
 <div id="entrada">    
     <form action=<?php print_r($_SESSION["ruta"]);?> method="post">
-        <input type="text" name="title" value=<?php print_r($_SESSION["titol"]);?>>
+        <input type="text" name="title" value="<?php print_r($_SESSION["titol"]);?>">
         <input type="hidden" name="id" value=<?php print_r($_SESSION["idEntrada"]);?>>
         <textarea name="contingut" rows="5"><?php print_r($_SESSION["contingut"]);?></textarea>
         <select id="cat" name="categoria">

@@ -177,7 +177,7 @@ input{
 </div>
 <div id="categorias"> 
         <input type="text" id="mySearch" onkeyup="filtrar()" placeholder="Search.." title="Type in a category">
-        <form class="categorias" style="width:25%;" action="Funcionalitats/filtrar.php" method="post"><input type="hidden" name="id" value="0"><button type="submit">Restableix</button></form>
+        <form class="categorias"  action="Funcionalitats/filtrar.php" method="post"><input type="hidden" name="id" value=0><button type="submit">Restableix</button></form>
         <ul id="myMenu">
             <?php
                 include "Funcionalitats/categories.php";
@@ -198,13 +198,9 @@ input{
             }
         }
 
-<<<<<<< HEAD
     function filtrar() {
+      //es fa servir per poder buscar entre les categories
         var input, filter, ul, li, button, i;
-=======
-     function filtrar() {
-        var input, filter, ul, li, a, i;
->>>>>>> eb8e01966620f49ccc46b428608ed6dfe7e06c0a
         input = document.getElementById("mySearch");
         filter = input.value.toUpperCase();
         ul = document.getElementById("myMenu");
