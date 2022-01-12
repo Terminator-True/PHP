@@ -33,7 +33,7 @@
 </style>
 <?php
 session_start();
-include "../Funcionalitats/entrades.php";
+include "Funcionalitats/entrades.php";
 if (isset($_POST["modifica"])) {
     $entrada=GetEntrada($_POST["id"]);
     $_SESSION["ruta"]="Funcionalitats/modifica.php";
