@@ -9,7 +9,7 @@ if (isset($_POST["Cancel"])) {
 class validacio{
     
     public static $text_valid = "/[a-zA-Z]/i"; 
-    public static $num_valid = "/[0-9]/i";
+    public static $num_valid = 11;
     public static $arxiu_valid = "/.php$/";
 
     public static function validar_text($text){
@@ -21,7 +21,7 @@ class validacio{
     }
 
     public static function validar_num($text){
-        return preg_match(self::$num_valid,$text);
+        return self::$num_valid>$text;
     }
     
 }
@@ -33,6 +33,8 @@ if (isset($_POST["id"]) && isset($_POST["metod"]) && isset($_POST["action"]) && 
     if (validacio::validar_text($id) && validacio::validar_num($num_camps) && validacio::validar_arxiu($action)) {
         require_once "../models/form.php";
         $form =  new form($id,$metod,$action,$num_camps);
+    }else {
+        echo "error";
     }
 
 
