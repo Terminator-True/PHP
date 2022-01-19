@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creador de Formularis</title>
-    <style>
-        form{
-            padding: 5px;
-        }
-        input,select{
-            padding: 5px;
-            margin: 5px;
-        }
-    </style>
-</head>
-<body>
-    <form action="main.php" method="post">
+<form action="controllers/validate_form.php" method="post">
         <label for="id">Id del formulari</label>    
         <input type="text" name="id"><br> 
         <label for="metod">Mètode</label>
@@ -30,7 +12,4 @@
         <input type="number" name="num_camps"><br>
         <button type="submit">Submit</button>
         <button type="submit" name="Cancel">Cancel</button>
-
-    </form>
-</body>
-</html>
+</form>
