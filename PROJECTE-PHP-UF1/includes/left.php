@@ -32,7 +32,6 @@
         padding-right:10px;        
 }
 </style>
-<?php #session_start();?>
 <div class="left" >
-<?php if ($_SESSION['login']===1) {include "includes/user-menu.php";}?>
+<?php if ($_SESSION['login']===1) {include "includes/user-menu.php";}else {include "includes/non-user-menu.php";}?>
 </div>

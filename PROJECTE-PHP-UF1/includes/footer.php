@@ -3,7 +3,7 @@
         background-color:PaleTurquoise;
         color:black;
         width: 100%;
-        margin-top: 100%;        
+        margin-top: 35%;        
         box-shadow:1px 1px 5px black;
         }
 </style>
