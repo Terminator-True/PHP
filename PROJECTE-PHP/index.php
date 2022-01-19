@@ -81,7 +81,7 @@ font-family: 'Fuzzy Bubbles', cursive;
 </head>
 <body>
 <!-- HEADER -->
-<?php include "splitincludes/header.php" ?>
+<?php include "includes/header.php" ?>
 <!-- MENU -->
 <?php include "includes/menu.php" ?>
     <!-- CAIXA ESQUERRA -->
