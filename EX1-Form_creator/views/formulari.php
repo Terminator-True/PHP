@@ -1,4 +1,4 @@
-<form action="controllers/validate_form.php" method="post">
+<form action="index.php" method="post">
         <label for="id">Id del formulari</label>    
         <input type="text" name="id"><br> 
         <label for="metod">Mètode</label>
