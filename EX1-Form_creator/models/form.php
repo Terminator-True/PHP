@@ -16,11 +16,11 @@ class form{
     }
 
     public function getAction(){
-        return $this -> Action;
+        return $this -> action;
     }
 
-    public function getNum_caps(){
-        return $this -> num_caps;
+    public function getNum_camps(){
+        return $this -> num_camps;
     }
     
     //Setters

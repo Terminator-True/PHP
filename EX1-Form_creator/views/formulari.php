@@ -10,6 +10,6 @@
         <input type="text" name="action"><br> 
         <label for="num_camps">Número de camps</label>
         <input type="number" name="num_camps"><br>
-        <button type="submit">Submit</button>
+        <button type="submit" name="submit_form">Submit</button>
         <button type="submit" name="Cancel">Cancel</button>
 </form>

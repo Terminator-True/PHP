@@ -17,12 +17,23 @@
 </head>
 <body>
 <?php 
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
     require_once "controllers/form_controller.php";
+    session_start();
+    if (!isset($_SESSION["form"])) {
+        $_SESSION["form"]="";
+    }
     form_controller::Crea_form();
-    form_controller::Crea_camps();
+    if (isset($_POST["submit_form"])) {
+        $form = form_controller::Valida_form();
+        $_SESSION["form"]=$form;  
+        form_controller::Crea_camps($form); 
+    }
+    if (isset($_POST["submit_camps"])) {
+        form_controller::Imprimeix_camps(form_controller::Valida_camps($_SESSION["form"]),$_SESSION["form"]);
+    }
+  
+
+
 ?>
 </body>
 </html>

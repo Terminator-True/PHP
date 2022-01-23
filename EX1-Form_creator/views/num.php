@@ -1,0 +1,1 @@
+<input type="number" id="<?= $camps[$i]["id"] ?>" value="<?= $camps[$i]["valor"] ?>" name="<?= $camp[$i]["nom"] ?>">

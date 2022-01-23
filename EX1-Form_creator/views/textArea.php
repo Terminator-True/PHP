@@ -1,0 +1,1 @@
+<textArea type="text" id="<?= $camps[$i]["id"] ?>" value="<?= $camps[$i]["valor"] ?>" name="<?= $camps[$i]["nom"] ?>"></textarea>
