@@ -43,7 +43,10 @@ font-family: 'Fuzzy Bubbles', cursive;
 
     </style>
     <?php
-        session_start();
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+
         if (!isset($_SESSION["imprimir"])) {
             $_SESSION["imprimir"]="";
         }
@@ -104,15 +107,17 @@ font-family: 'Fuzzy Bubbles', cursive;
         $entrades=GetEntrades();
         for ($i=count($entrades)-1; $i > 0; $i--) { 
             $entrada = $entrades[$i];
+            include "includes/entrada.php";
+            /*
             if ($_SESSION["Print_entrades"]==$_SESSION["id"]) {
                 if ($_SESSION["id"]==$entrada[1]) {
                     include "includes/entrada.php";                
                 }
             }else if($_SESSION["category_id"]==$entrada[2]){
                 include "includes/entrada.php";
-            }else {
+            }else{
                 include "includes/entrada.php";
-            }
+            }*/
         }
         $_SESSION["Print_entrades"]=0;
         ?> 
@@ -123,7 +128,7 @@ font-family: 'Fuzzy Bubbles', cursive;
                 include "includes/notiSuccess.php";
             }else {
                 include "includes/notiError.php";
-            }
+            }   
         }?>
     </div>
 <!-- FOOTER -->
