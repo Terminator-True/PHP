@@ -1,4 +1,5 @@
 <form action="">
 Nom: <input type="text">
-Cognoms:<input type="text">
+titol:<input type="text">
+
 </form>

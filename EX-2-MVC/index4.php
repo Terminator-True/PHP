@@ -1,7 +1,7 @@
 <?php
 echo "<h1>PHP MVC </h1>";
 
-require_once 'controllers/usuariController.php';
+require_once 'controllers/notaController.php';
 $error = false;
 
 // Convertim l'índex en un controlador frontal

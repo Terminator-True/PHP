@@ -1,2 +1,2 @@
-<!-- La vista és epecífica per cada acció -->
-<h1><?=$totsElsUsuaris?></h1>
+<!-- Fa print de tots els usuaris en forma d'array  -->
+<?php print_r($totsElsUsuaris); ?>

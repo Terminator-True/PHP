@@ -2,38 +2,34 @@
 
 class NotaController {
 
-    // El controlador encapsula accions
-    // una acció de crear usuari, mostrar usuari, ...
-
-
-    //fixem-nos el nom del mètode
-    // carreguem el model
-    // fem un usari nou
-    // a una variable li assignem el resultat del
-    // mètode aconseguir tots
-    // carreguem a la vista
-
-
+    //Mostra totes les notes existents a la base de dades
     public function mostrarTots(){
 
         require_once 'models/nota.php';
 
         $Nota = new Nota();
-        $AllNotes=$usuari->aconseguirTots();
-
+        $AllNotes=$Nota->aconseguirTots("notes")->fetch_array(MYSQLI_NUM);
         require_once 'views/notes/mostrarTots.php';
 
-
     }
-    public function Crear(){
+
+    public function CrearNota(){
 
         require_once 'models/nota.php';
-
         $Nota = new Nota();
         $Nota->setNom("Nota1");
-        $Nota->setNota
+        $Nota->setTitol("Hola");
+        $Nota->setDescripcio("Hola, que tal");
+        $Nota->setUsuari_id(1);
+
+        print_r($Nota->desar());
+        
+        //require_once 'views/notes/mostraNota.php';
 
 
     }
 }
+
+$nota = new NotaController;
+$nota->CrearNota()
 ?>
