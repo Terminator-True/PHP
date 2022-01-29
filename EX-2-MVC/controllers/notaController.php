@@ -30,6 +30,7 @@ class NotaController {
     }
 }
 
-$nota = new NotaController;
-$nota->CrearNota()
+
+//$nota = new NotaController;
+//$nota->CrearNota()
 ?>

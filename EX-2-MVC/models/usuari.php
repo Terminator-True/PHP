@@ -10,6 +10,7 @@ class Usuari extends ModelBase {
     private  $email;
     private $password;
 
+    //Setters & Getters
     public function getNom()
     {
         return $this->nom;

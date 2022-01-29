@@ -1,6 +1,6 @@
 <?php
 
-//fem la conexió
+//Conexió a la base dedades
 class Database{
     
     public static function connect()
