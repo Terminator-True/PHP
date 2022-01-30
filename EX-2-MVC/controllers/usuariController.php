@@ -10,8 +10,6 @@ class UsuariController {
         $totsElsUsuaris=$usuari->aconseguirTots("usuaris")->fetch_array(MYSQLI_NUM);
 
         require_once 'views/usuaris/mostrarTots.php';
-
-
     }
     //Crida a un formulari que crea l'usuari
     public function crearUsuari() {

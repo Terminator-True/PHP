@@ -14,7 +14,6 @@ class Database{
         
         return $connect;
     }
-
 }
 
 
