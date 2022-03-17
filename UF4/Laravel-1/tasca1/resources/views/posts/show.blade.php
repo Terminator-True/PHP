@@ -12,10 +12,21 @@
 @section('content')
     
 <div class="card">
-  <img src="img_avatar.png" alt="Avatar" style="width:100%">
   <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p></p> 
+    <h4><b>{{$post["title"]}}</b></h4> 
+    <p>{{$post["content"]}}</p> 
+    <hr>
+    <p> @if($post["done"])
+            done
+        @else
+            not done
+        @endif</p>
+    <p>@if($post["interesting"])
+            interesting
+        @else
+            not interesting
+        @endif</p>
+    
   </div>
 </div>
 @endsection

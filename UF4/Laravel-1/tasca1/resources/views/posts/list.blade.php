@@ -10,30 +10,15 @@
 @endsection
 
 @section('content')
-<table>
-    @foreach($posts as $post)
-    <tr>
-        <td>
-        {{$post["title"]}}
-        </td>
-        <td>
-        {{$post["content"]}}
-        </td>
-        <td>
-        @if($post["done"])
-            done
-        @else
-            not done
-        @endif
-        </td>
-        <td>
-        @if($post["interesting"])
-            interesting
-        @else
-            not interesting
-        @endif   </td>
-    </tr>
-    @endforeach
-</table>
+{{$i = 1}}
+
+<ul>
+    @while($i < count($posts))
+        <li> {{$posts[$i]["title"]}} <a href="http://127.0.0.1:8000/posts/{{$i}}">Show</a></li>
+        {{ $i++ }}
+    @endwhile
+</ul>
+
+@include("posts.taula")
 @endsection
 
