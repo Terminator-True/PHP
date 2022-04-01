@@ -30,7 +30,7 @@
   padding: 2px 16px;
 }
    </style>
-   <title>tasca2-laravel  @yield('title')</title>
+   <title>tasca4-laravel  @yield('title')</title>
 </head>
     <body>
         @section('sidebar')

@@ -1,5 +1,8 @@
 <?php
 
+use App\Controller\HomeController;
+use App\Http\Controllers\EspardenyaController;
+use App\Http\Controllers\FruitaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 /*
@@ -125,3 +128,29 @@ Route::prefix("/tasca2")->name("tasca2")->group(function() use($posts){
         return response()->download(public_path("/img/radar.PNG"),"radar.PNG");  
     })->name("download");
 });
+
+/* Tasca 4 */
+
+Route::get("/index", [FruitaController::class,'index' ])
+    ->name("fruita.index");
+
+
+Route::get("/show/{fruita?}", [FruitaController::class,'show' ])
+    ->name("fruita.show");
+
+
+Route::get("/fruita/taronges", [FruitaController::class,'taronges' ])
+    ->name("fruita.taronja");
+
+Route::get("/fruita/pera", [FruitaController::class,'peres' ])
+    ->name("fruita.pera");
+
+//-------------------Exercici 2------------------------
+
+
+Route::get("/espardenyes/index", [EspardenyaController::class,'index' ])
+    ->name("espardenyes.index");
+
+Route::get("/espardenyes/show/{id?}", [EspardenyaController::class,'show' ])
+    ->name("espardenyes.show");
+
