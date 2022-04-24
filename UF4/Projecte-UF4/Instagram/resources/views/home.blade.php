@@ -4,17 +4,27 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+            <div class="container">
+            @if(!empty($files) && $files->count() )
+            @foreach($files as $file)
+            <div class="card m-1">
+            <p class="card-text p-2">
+                </p>
+
+            <img class="card-img-bottom" src="{{ route('image.get', ['filename'=>$file->image_path]) }}" alt="Card image" style="width:100%">
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    <button class="btn" > <img style="width: 20px;" src="https://cdn-icons-png.flaticon.com/512/535/535234.png" alt="" srcset=""> </button>
+                    <hr>
+                <p class="card-text">{{ $file->description}} | {{ \FormatTime::LongTimeFilter($file->created_at) }}
+                </p>
+                </div>
 
-                    {{ __('You are logged in!') }}
+            </div>
+            @endforeach
+            @endif
+            {!! $files->links() !!}
+            </div>
                 </div>
             </div>
         </div>

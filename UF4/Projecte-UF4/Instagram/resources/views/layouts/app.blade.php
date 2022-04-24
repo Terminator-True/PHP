@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Instagram') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                {{ __('Instagram') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -52,12 +52,24 @@
                                 </li>
                             @endif
                         @else
+                        <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('image.up') }}"><img style="width: 50px; border-radius: 5px;" src="https://cdn-icons-png.flaticon.com/512/875/875068.png" alt="" srcset=""></a>
+                                </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    @if(Auth::user()->image)
+                                    <div class="container-avatar">
+                                        <img style="width: 50px; border-radius: 5px;" src="{{ route('user.avatar', ['filename'=>Auth::user()->image]) }}"  class="avatar" alt="">
+                                    </div>
+                                    @else
                                     {{ Auth::user()->name }}
+                                    @endif
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" role="button" href="{{ route('password.index') }}">
+                                    Canviar Password
+                                </a>
                                 <a class="dropdown-item" role="button" href="{{ route('user.index') }}">
                                     Editar Perfil
                                      </a>

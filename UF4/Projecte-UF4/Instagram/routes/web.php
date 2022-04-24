@@ -15,23 +15,23 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 use App\Models\Image;
-
-Route::get('/', function () {
-    $images =   Image::all();
-    foreach ($images as $image) {
-        echo $image->image_path. "<br>";
-        echo $image->description. "<br>";
-        echo $image->user->name. " " .$image->user->surname;
-
-    }
-    return view('welcome');
-})->middleware('auth');#Middleware per a que si no estás loguejat t'envía cap el login
-
 Auth::routes();
 
 Route::get('/userIndex', [App\Http\Controllers\UserController::class, 'index'])->name('user.index')->middleware('auth');;
 Route::post('/userUpdate', [App\Http\Controllers\UserController::class, 'update'])->name('user.update')->middleware('auth');;
 
+Route::get('/paswordIndex', [App\Http\Controllers\PasswordController::class, 'indexPassword'])->name('password.index')->middleware('auth');
+Route::post('/paswordUpdate', [App\Http\Controllers\PasswordController::class, 'updatePassword'])->name('password.update')->middleware('auth');
+
+Route::get('/Image', [App\Http\Controllers\ImageController::class, 'index'])->name('image.up')->middleware('auth');;
+Route::post('/ImageUpload', [App\Http\Controllers\ImageController::class, 'ImageUp'])->name('image.upload')->middleware('auth');;
+
+Route::get('/userAvatar/{filename}', [App\Http\Controllers\UserController::class, 'getImage'])->name('user.avatar')->middleware('auth');;
+
+Route::get('/image/{filename}', [App\Http\Controllers\ImageController::class, 'getImage'])->name('image.get')->middleware('auth');;
+
+Route::get('/user/{userid}', [App\Http\Controllers\UserController::class, 'getUserName'])->name('user.get')->middleware('auth');;
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

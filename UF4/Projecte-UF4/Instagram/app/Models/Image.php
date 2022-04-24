@@ -11,6 +11,14 @@ class Image extends Model
 
     protected $table = "images";
 
+    protected $fillable = [
+        'user_id',
+        'image_path',
+        'description',
+        'created_at',
+        'updated_at',
+    ];
+
     public function comments(){
     return $this->hasMany("\App\Models\Comment")->orderBy("id","desc");
     }
